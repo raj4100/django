@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>My Web Page</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script type="text/javascript">
+		function log_fun()
+		{
+			document.getElementById("log").style.display = "block";
+			document.getElementById("sign").style.display = "none";
+		}
+		function sign_fun()
+		{
+			document.getElementById("sign").style.display = "block";
+			document.getElementById("log").style.display = "none";
+		}
+	</script>
+</head>
+<body>
+	<div class="container-fluid lower-class" style="padding-left:0px;padding-right:0px">
+		<div class="row upper-class" style="margin-left:0px;margin-right:0px">
+			<div class="col-md-12 middle">
+				{{message}}
+			</div>
+			<div class="col-md-12 middle-class">
+				<div class="col-md-6 col-sm-6 left-heading" onclick="log_fun()">
+					LOGIN
+				</div>
+				<div class="col-md-6 col-sm-6 right-heading" onclick="sign_fun()">
+					SIGNUP
+				</div>
+				<form class="log-form-bg" id="log" name="form" action="{% url 'login' %}" method="POST">{% csrf_token %}
+					<div class="form-group">
+						<input class="col-md-12 col-sm-12 form-control" type="email" name="email" placeholder="Email-ID" required>
+						<input class="col-md-12 col-sm-12 form-control" type="password" name="password" placeholder="Password" required>
+						<button type="submit" class="sub-btn btn" name="login_btn"><strong>LOGIN</strong></button>
+					</div>
+				</form>
+				<form class="sign-form-bg" id="sign" name="form" action="{% url 'signup' %}" method="POST">{% csrf_token %}
+					<div class="form-group">
+						<input class="col-md-12 col-sm-12 form-control" type="text" name="fname" placeholder="Full Name" required>
+						<input class="col-md-12 col-sm-12 form-control" type="mobile" name="mobile" placeholder="Mobile Number" required>
+						<input class="col-md-12 col-sm-12 form-control" type="email" name="email" placeholder="Email-ID" required>
+						<input class="col-md-12 col-sm-12 form-control" type="password" name="password" placeholder="Password" required>
+						<button type="submit" class="sub-btn btn" name="login_btn"><strong>SIGN UP</strong></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+   </body>
+</html>

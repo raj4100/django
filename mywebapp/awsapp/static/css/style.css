@@ -1,0 +1,219 @@
+.lower-class
+{
+	width: 100%;
+}
+.upper-class
+{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: #a4d1ca;
+}
+.middle
+{
+	color: black;
+	width: 30%;
+	margin-left: 35%;
+	line-height: 20px;
+	margin-top: 60px;
+}
+.middle-class
+{
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 50px;
+	background-color: #8a876b;
+}
+.left-heading
+{
+	color: white;
+	font-size: 25px;
+	text-align: center;
+ 	line-height: 50px;
+ 	background-color: #7a6165;
+ 	cursor: pointer;
+}
+.right-heading
+{
+	color: white;
+	font-size: 25px;
+	text-align: center;
+ 	line-height: 50px;
+ 	background-color: #ad792e;
+ 	cursor: pointer;
+}
+.log-form-bg
+{
+	padding-bottom: 10px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #7a6165;
+}
+.log-form-bg input
+{
+	margin-top: 20px;
+}
+.sub-btn
+{
+	margin-top: 20px;
+	font-size: 17px;
+}
+.sign-form-bg
+{
+	padding-bottom: 10px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #ad792e;
+	display: none;
+}
+.sign-form-bg input
+{
+	margin-top: 20px;
+}
+.conf-top
+{
+	width: 100%;
+	height: auto;
+	background-color: #6caf43;
+	text-align: center;
+	line-height: 50px;
+	font-size: 20px;
+	color: white;
+}
+.conf-home
+{
+	color: black;
+	width: 40%;
+	text-align: center;
+	font-size: 20px;
+	margin-left: 30%;
+	line-height: 20px;
+	margin-top: 60px;
+	background-color: #a78b61;
+	padding: 0px;
+}
+.left-part
+{
+	width: 75%;
+}
+.right-part
+{
+	width: 25%;
+}
+.left-cls
+{
+	width: 33%;
+}
+.mid-cls
+{
+	width: 42%;
+}
+.logout-btn
+{
+	line-height: 15px;
+	color: black;
+}
+.logout-btn:hover
+{
+	color: white;
+	background-color: #406587;
+}
+.heading
+{
+	width: 100%;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	font-size: 30px;
+	background-color:#C70039;
+}
+.log-row
+{
+	width: 100%;
+	padding-top: 10px;
+	line-height: 25px;
+	font-size: 18px;
+	vertical-align: middle;
+	padding-right: 10px;
+}
+.log-row label
+{
+	text-align: left;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.log-row input,select
+{
+	border-radius: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.log-row button:hover
+{
+	color: white;
+	background-color: #5d9983;
+}
+.dash-page
+{
+	width: 100%;
+	height: auto
+	text-align: center;
+	font-size: 20px;
+	line-height: 20px;
+	/*background-color: #8bd3ad;*/
+	padding: 0px;
+}
+.dash-form
+{
+	width: 60%;
+	margin-left: 20%;
+	line-height: 20px;
+	height: auto;
+}
+.info-class
+{
+	text-align: center;
+}
+.instance
+{
+	width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+	text-align: center;
+}
+.table-info
+{
+	width: 100%;
+	overflow-x: auto
+}
+.board
+{
+	border: 1px black;
+}
+.table-heading
+{
+	width: 100%;
+	text-align: center;
+	color: white;
+	line-height: 30px;
+	background-color: #9c4354;
+}
+.col-heading
+{
+	width: auto;
+	color: white;
+	background-color: #a88e57;
+}
+.btn-class
+{
+	margin-top: 20px;
+}

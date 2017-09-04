@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>My Web Page</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<div class="container-fluid lower-class" style="padding-left:0px;padding-right:0px">
+		<div class="row upper-class" style="margin-left:0px;margin-right:0px">
+			<div class="col-md-12 conf-top">
+				<div class="col-md-9 col-sm-10 left-part">
+					Welcome {{username}}
+				</div>
+				<form class="col-md-3 col-sm-2 right-part" action="{% url 'home' %}" method="POST">{% csrf_token %}
+					<button type="submit" class="logout-btn btn" name="submit">LOGOUT</button>
+				</form>
+			</div>
+			<div class="col-md-12 conf-home">
+				<div class="col-md-12 heading">
+					AWS Credentials
+				</div>
+				<form class="aws-form-bg" name="form" action="{% url 'dashboard' %}" method="POST">{% csrf_token %}
+					<div class="form-group log-row">
+						<label class="col-md-5 col-sm-12">AWS Access Key:</label>
+						<input class="col-md-7 col-sm-12" type="text" name="accountid" required>
+						<label class="col-md-5 col-sm-12">AWS Secret Key:</label>
+						<input class="col-md-7 col-sm-12" type="text" name="accesskey" required>
+						
+						<button type="submit" class="sub-btn btn" name="submit"><strong>Submit</strong></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>  
+</body>
+</html>

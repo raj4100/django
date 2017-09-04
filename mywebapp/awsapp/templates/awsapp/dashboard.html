@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>My Web Page</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<div class="container-fluid lower-class" style="padding-left:0px;padding-right:0px">
+		<div class="row upper-class" style="margin-left:0px;margin-right:0px">
+			<div class="col-md-12 conf-top">
+				<div class="col-md-4 col-sm-5 left-cls">
+					DASHBOARD
+				</div>
+				<div class="col-md-5 col-sm-5 mid-cls">
+					{{username}}
+				</div>
+				<form class="col-md-3 col-sm-2 right-part" action="{% url 'home' %}" method="POST">{% csrf_token %}
+					<button type="submit" class="logout-btn btn" name="submit">LOGOUT</button>
+				</form>
+			</div>
+			<div class="col-md-12 dash-page">
+				<div class="dash-form">
+					<form class="info-class" name="form" action="{% url 'dashboard' %}" method="POST">{% csrf_token %}
+						<div class="form-group log-row">
+							<label class="col-md-3 col-sm-4">AMI:</label>
+							<select class="col-md-9 col-sm-8 top-space" name="amitype">
+								<option value="ami-4fffc834">Amazon Linux AMI 2017.03.1 (HVM), SSD Volume Type</option>
+								<option value="ami-8fac8399">SUSE Linux Enterprise Server 12 SP2 (HVM), SSD Volume Type</option>
+								<option value="ami-c998b6b2">Red Hat Enterprise Linux 7.4 (HVM), SSD Volume Type</option>
+								<option value="ami-cd0f5cb6">Ubuntu Server 16.04 LTS (HVM), SSD Volume</option>
+								<option value="ami-27a58d5c">Microsoft Windows Server 2016 Base</option>
+								<option value="ami-35ebd84e">Deep Learning AMI Ubuntu Version 2.2_Aug2017</option>
+								<option value="ami-4b44745d">Deep Learning AMI Amazon Linux Version 2.3_Jun2017</option>
+								<option value="ami-08a38b73">Microsoft Windows Server 2016 Base with Containers</option>
+								<option value="ami-5dad9826">Microsoft Windows Server 2016 Base Nano</option>
+								<option value="ami-c6e9d9bd">Microsoft Windows Server 2012 R2 Base</option>
+								<option value="ami-e87d4993">Microsoft Windows Server 2012 Base</option>
+								<option value="ami-cf644fb4">Microsoft Windows Server 2008 R2 Base</option>
+								<option value="ami-841f46ff">Ubuntu Server 14.04 LTS (HVM), SSD Volume Type</option>
+								<option value="ami-1a775e0c">SUSE Linux Enterprise Server 11 SP4 (HVM), SSD Volume Type</option>
+								<option value="ami-21ffc85a">Amazon Linux AMI 2017.03.1 (PV)</option>
+								<option value="ami-c4f8d1bf">Microsoft Windows Server 2003 R2 Base(64-bit)</option>
+								<option value="ami-cbf8d1b0">Microsoft Windows Server 2003 R2 Base(32-bit)</option>
+							</select>
+							<label class="col-md-3 col-sm-3">Instance Type:</label>
+							<select class="col-md-3 col-sm-3 top-space" name="instancetype">
+								<option value="t2.micro">T2 Micro</option>
+							</select>
+							<label class="col-md-3 col-sm-3">No. Of Instances:</label>
+							<input class="col-md-3 col-sm-3" type="number" name="instanceno" min="1" max="5">
+							<button type="submit" class="sub-btn btn" name="submit">LAUNCH</button>
+						</div>
+					</form>
+				</div>
+				<div class="instance">
+					<div class="table-heading">Instances</div>
+					<table class="table-info" style="border:1px black">
+						<tr class="col-heading">
+							<td>Select</td>
+							<td>Instance Id</td>
+							<td>Instance State</td>
+							<td>Public DNS(IPv4)</td>
+							<td>IPv4 Public IP</td>
+							<td>Private IP</td>
+						</tr>
+						<form name="form" action="{% url 'dashboard' %}" method="POST">{% csrf_token %}
+						{% for i in instance %}
+						<tr>
+							<td><input type="checkbox" name="iid[]" value="{{i.id}}"></td>
+							<td>{{i.id}}</td>
+							{% for k in i.state.values %}
+							{% if not forloop.first %}
+							<td>{{k}}</td>
+							{% endif %}
+							{% endfor %}
+							<td>{{i.public_dns_name}}</td>
+							<td>{{i.public_ip_address}}</td>
+							<td>{{i.private_ip_address}}</td>	
+						</tr>
+						{% endfor %}
+						<tr>
+							<td><button class="btn" type="submit" name="start">Start</button></td>
+							<td><button class="btn" type="submit" name="stop">Stop</button></td>
+							<td><button class="btn" type="submit" name="reboot">Reboot</button></td>
+							<td><button class="btn" type="submit" name="terminate">Terminate</button></td>
+						</tr>
+						</form>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>  
+   </body>
+</html>
